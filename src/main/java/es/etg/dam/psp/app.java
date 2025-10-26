@@ -7,7 +7,7 @@ public class app {
     // Constantes
     private static final int NUM_ARGUMENTOS_ESPERADOS = 2;
     private static final String MENSAJE_ERROR_ARGUMENTOS = "Número de argumentos incorrecto.";
-    private static final String MENSAJE_USO = "Uso: java es.etg.dam.psp.app <imagen_entrada> <imagen_salida>";
+    private static final String MENSAJE_USO = "Uso: java -cp out es.etg.dam.psp.app <imagen_entrada> <imagen_salida>";
     private static final String MENSAJE_EXITO = "Conversión completada correctamente: ";
     private static final String MENSAJE_ERROR_CONVERSION = "Error durante la conversión de la imagen.";
 
