@@ -8,11 +8,13 @@ public class app {
     private static final int NUM_ARGUMENTOS_ESPERADOS = 2;
     private static final String MENSAJE_ERROR_ARGUMENTOS = "Número de argumentos incorrecto.";
     private static final String MENSAJE_USO = "Uso: java es.etg.dam.psp.app <imagen_entrada> <imagen_salida>";
+    private static final String MENSAJE_EXITO = "Conversión completada correctamente: ";
+    private static final String MENSAJE_ERROR_CONVERSION = "Error durante la conversión de la imagen.";
 
-    private static String imagenEntrada;
-    private static String imagenSalida;
+    private static String IMAGEN_ENTRADA;
+    private static String IMAGEN_SALIDA;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         
         verificarArgumentos(args);
         construirVariables(args);
@@ -21,7 +23,13 @@ public class app {
         conversor conversor = new conversorImagen();
 
         // Ejecutar la conversión
-        conversor.convertir(imagenEntrada, imagenSalida);
+        boolean exito = conversor.convertir(IMAGEN_ENTRADA, IMAGEN_SALIDA);
+    
+        if (exito) {
+            System.out.println(MENSAJE_EXITO + IMAGEN_SALIDA);
+        } else {
+            System.out.println(MENSAJE_ERROR_CONVERSION);
+        }
     }
 
     private static void verificarArgumentos(String[] args) {
@@ -33,8 +41,8 @@ public class app {
     }
 
     private static void construirVariables(String[] args) {
-        imagenEntrada = args[0];
-        imagenSalida = args[1];
+        IMAGEN_ENTRADA = args[0];
+        IMAGEN_SALIDA = args[1];
     }
 }
 
